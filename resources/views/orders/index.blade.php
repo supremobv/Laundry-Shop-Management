@@ -1,0 +1,6 @@
+@extends('layouts.app')
+@section('title','Orders')
+@section('content')
+<section class="page-heading"><div><div class="eyebrow">FROM DROP-OFF TO PICKUP</div><h1>Every load, in the loop.</h1><p>Track your orders and keep your laundry day moving.</p></div>@if(auth()->user()->hasPermission('orders.create'))<a class="btn primary" href="{{ route('orders.create') }}"><x-icon name="plus"/>New order</a>@endif</section>
+<section class="panel"><form class="toolbar" method="get"><div class="search-field"><x-icon name="search"/><input name="q" value="{{ request('q') }}" placeholder="Search order, customer or phone…" aria-label="Search orders" maxlength="100"></div><select name="status" aria-label="Filter by status"><option value="">All stages</option>@foreach(\App\Models\Order::STATUSES as $key=>$label)<option value="{{ $key }}" @selected(request('status')===$key)>{{ $label }}</option>@endforeach</select><label><input type="checkbox" name="overdue" value="1" @checked(request('overdue'))>Overdue only</label><button class="btn small">Apply filters</button><a class="text-link" href="{{ route('orders.index') }}">Reset</a></form>@include('partials.order-table'){{ $orders->links() }}</section>
+@endsection

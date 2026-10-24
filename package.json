@@ -1,0 +1,6 @@
+{
+    "private": true,
+    "type": "module",
+    "name": "freshfold-laundry-management",
+    "scripts": { "check": "node --check public/js/app.js" }
+}

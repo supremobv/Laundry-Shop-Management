@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title','My account')
+@section('content')
+<div class="page-heading"><div><div class="eyebrow">YOUR PERSONAL WORKSPACE</div><h1>My account</h1><p>{{ auth()->user()->name }} · {{ auth()->user()->email }} · {{ ucfirst(auth()->user()->role) }}</p></div></div><section class="panel form-panel narrow"><div class="panel-heading"><div><h2>Change your password</h2><p>Use at least 12 characters, with uppercase, lowercase, a number, and a symbol.</p></div></div><form method="post" action="{{ route('profile.password') }}" class="stack-form panel-body">@csrf @method('PUT')<label>Current password<input type="password" name="current_password" autocomplete="current-password" required></label><label>New password<input type="password" name="password" autocomplete="new-password" minlength="12" required></label><label>Confirm new password<input type="password" name="password_confirmation" autocomplete="new-password" minlength="12" required></label><div class="form-actions"><button class="btn primary">Update password</button></div></form></section>
+@endsection

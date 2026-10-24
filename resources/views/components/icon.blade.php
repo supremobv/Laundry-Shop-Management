@@ -1,0 +1,27 @@
+@props(['name' => 'grid'])
+@php($paths = [
+ 'grid'=>'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',
+ 'bag'=>'M5 7h14l1 14H4L5 7z M9 7V5a3 3 0 0 1 6 0v2',
+ 'users'=>'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M22 21v-2a4 4 0 0 0-3-3.9 M15 3.1a4 4 0 0 1 0 7.8 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
+ 'wash'=>'M5 3h14v18H5z M5 7h14 M8 5h1 M12 14a4 4 0 1 0 0 .1 M8 14q4-3 8 0',
+ 'box'=>'M3 7l9-4 9 4-9 4-9-4z M3 7v10l9 4 9-4V7 M12 11v10 M7 5l10 4',
+ 'wallet'=>'M21 8H4a2 2 0 0 1 0-4h15v4 M3 6v13a2 2 0 0 0 2 2h16V8 M21 12h-6v5h6 M17 14.5h1',
+ 'chart'=>'M3 3v18h18 M7 16v-5 M12 16V7 M17 16V4',
+ 'settings'=>'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1 1-3z',
+ 'shield'=>'M12 3l9 4v6c0 5-9 9-9 9s-9-4-9-9V7l9-4z M8 12l3 3 5-6',
+ 'help'=>'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18 M9 9a3 3 0 0 1 6 0c0 2-3 2-3 5 M12 17h.01',
+ 'plus'=>'M12 5v14 M5 12h14',
+ 'arrow'=>'M5 12h14 M14 7l5 5-5 5',
+ 'search'=>'M21 21l-5-5 M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+ 'clock'=>'M12 8v5l3 2 M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0',
+ 'check'=>'M5 12l4 4L19 6',
+ 'logout'=>'M9 3H4v18h5 M10 12h11 M17 8l4 4-4 4',
+ 'print'=>'M6 9V3h12v6 M6 17H3V9h18v8h-3 M6 14h12v7H6z',
+ 'download'=>'M12 3v12 M7 10l5 5 5-5 M4 17v4h16v-4',
+ 'menu'=>'M3 6h18 M3 12h18 M3 18h18',
+ 'spark'=>'M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z',
+ 'alert'=>'M12 3L2 21h20L12 3z M12 9v5 M12 17h.01',
+ 'edit'=>'M15 4l5 5 M4 15L17 2l5 5L9 20l-7 2 2-7z',
+ 'receipt'=>'M5 2l3 2 4-2 4 2 3-2v20l-3-2-4 2-4-2-3 2V2z M8 8h8 M8 12h8 M8 16h4',
+])
+<svg {{ $attributes->merge(['class' => 'icon']) }} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ $paths[$name] ?? $paths['grid'] }}"/></svg>

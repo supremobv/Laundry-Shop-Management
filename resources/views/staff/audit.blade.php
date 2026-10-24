@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title','Audit log')
+@section('content')
+<div class="page-heading"><div><div class="eyebrow">CLARITY & ACCOUNTABILITY</div><h1>A history you can follow.</h1><p>Trace important account, financial, and operational changes.</p></div><span class="pill">Administrator access</span></div><section class="panel"><div class="panel-heading"><h2>Recent activity</h2></div><div class="table-wrap"><table><thead><tr><th>When</th><th>Who / IP address</th><th>Action</th><th>Subject</th><th>Details</th></tr></thead><tbody>@forelse($logs as $log)<tr><td>{{ $log->created_at->format('M j, Y · g:i:s A') }}</td><td>{{ $log->user?->name ?: 'System' }}<div class="table-sub">{{ $log->ip_address ?: 'Console' }}</div></td><td>{{ $log->action }}</td><td>{{ $log->subject ?: '—' }}</td><td><details><summary>View details</summary><pre>{{ json_encode($log->metadata, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE) }}</pre></details></td></tr>@empty<tr><td colspan="5">No activity recorded yet.</td></tr>@endforelse</tbody></table></div>{{ $logs->links() }}</section>
+@endsection
